@@ -1,0 +1,18 @@
+<div class="content">
+  <div>
+    <input #searchInput type="text" [formControl]="searchBox" placeholder="Search.." class="advancedSearchTextbox">
+    <button type="button" (click)="searchFitler(searchInput.value)" class="btn btn-primary">Search</button>
+  </div>
+  <div >
+    <div class="card w-75" *ngFor="let supplier of supplierFilterd">
+      <div class="card-body">
+      <h5 class="card-title">{{supplier.supplier_name}}</h5>
+      <p class="card-text">{{supplier.supplier_phone}}</p>
+      <p class="card-text">{{supplier.supplier_email}}</p>
+      <a type="button" (click)="onSelectSupplier(supplier)" [routerLink]="['/supplierDetails/' , supplier.supplier_id]" class="btn btn-primary">More Info</a>
+      <a type="button" (click)="onSelectSupplier(supplier)" [routerLink]="['/supplierEdit/' , supplier.supplier_id]" class="btn btn-primary">Edit Supplier</a>
+    </div>
+    </div>
+  </div>
+</div>
+
